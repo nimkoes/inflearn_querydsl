@@ -264,7 +264,7 @@ public class QuerydslBasicTest {
     }
 
     /**
-     * 회원과 침을 조인 하면서, 팀 이름이 teamA 인 팀만 조인, 회원은 모두 조회
+     * 회원과 팀을 조인 하면서, 팀 이름이 teamA 인 팀만 조인, 회원은 모두 조회
      * JPQL : select m, t from Member m left join m.team t on t.name = 'teamA'
      */
     @Test
