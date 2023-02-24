@@ -311,6 +311,7 @@ public class QuerydslBasicTest {
             .where(member.username.eq("member1"))
             .fetchOne();
 
+        // 로딩 된 entity 인지 아닌지 확인할 때 사용
         boolean loaded = emf.getPersistenceUnitUtil().isLoaded(findMember.getTeam());
         assertThat(loaded).as("페치 조인 미적용").isFalse();
     }
@@ -335,6 +336,7 @@ public class QuerydslBasicTest {
      */
     @Test
     public void subQuery() {
+        // alias 가 겹면 원치 않는 결과가 나올 수 있기 때문에 별도로 생성
         QMember memberSub = new QMember("memberSub");
 
         List<Member> result = queryFactory
@@ -350,7 +352,7 @@ public class QuerydslBasicTest {
     }
 
     /**
-     * 나이가 가장 평균 이상인 회원
+     * 나이가 평균 이상인 회원
      */
     @Test
     public void subQueryGoe() {
